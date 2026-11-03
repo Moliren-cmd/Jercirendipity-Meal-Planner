@@ -22,9 +22,20 @@
       </nav>
       <div class="nav-actions">
         <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Switch to dark mode">◐ <span>Dark mode</span></button>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Open navigation menu"><span aria-hidden="true">☰</span></button>
       </div>
     </div>
   </header>
+  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile navigation" aria-hidden="true">
+    <div class="drawer-head"><span>Navigate</span><button class="mini-icon-btn" id="closeMenu" type="button" aria-label="Close navigation menu">✕</button></div>
+    <nav class="drawer-links">
+      <a href="#scheduler">Weekly meal plan <span aria-hidden="true">↗</span></a>
+      <a href="#meal-library">Master meal library <span aria-hidden="true">↗</span></a>
+      <a href="#shopping-list">Shopping list <span aria-hidden="true">↗</span></a>
+    </nav>
+    <button class="theme-toggle drawer-theme" id="mobileThemeToggle" type="button" aria-pressed="false" aria-label="Switch to dark mode">◐ <span>Dark mode</span></button>
+  </aside>
 
   <main id="top">
     <section class="hero" aria-labelledby="page-title">
@@ -87,26 +98,31 @@
           <h2 id="shopping-title">Shopping List</h2>
         </div>
       </div>
+      <div class="shopping-summary" id="shoppingSummary" aria-live="polite"></div>
       <div class="shopping-panel">
         <div class="shopping-list-wrap">
           <div class="shopping-list-head">
             <h3>Your ingredients</h3>
             <span class="shopping-count" id="shoppingCount">0 items</span>
           </div>
+          <div class="shopping-table-head" aria-hidden="true"><span>Ingredient</span><span>Quantity</span><span>Unit</span><span>Unit cost</span><span>Subtotal</span></div>
           <div class="shopping-items" id="shoppingItems" aria-live="polite"></div>
+          <div class="shopping-grand-total"><span>Grand Total Shopping Cost</span><strong id="shoppingGrandTotal">₱0.00</strong></div>
         </div>
         <aside class="shopping-aside">
           <div class="aside-icon" aria-hidden="true">🧺</div>
-          <h3>Export list</h3>
-          <button class="btn btn-primary" id="exportButton" type="button">↓ Export shopping list</button>
+          <h3>Shopping List</h3>
+          <p></p>
+          <button class="btn btn-primary" id="exportButton" type="button">↓ Download Shopping List</button>
+          <p class="price-source">Government Price Rate. Prices are editable <a href="https://www.da.gov.ph/price-monitoring/" target="_blank" rel="noreferrer">View DA price monitoring</a>.</p>
         </aside>
       </div>
     </section>
 
     <footer>
       <span class="footer-brand">Jercyrendipity</span>
-      <span>Filipino Student Meal Planner</span>
-      <span>Recipes saved on this device</span>
+      <span>Jercyrendipity Meal Planner</span>
+      <span>Recipes can be edited</span>
     </footer>
   </main>
 
